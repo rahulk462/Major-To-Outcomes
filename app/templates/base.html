@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Major to Outcomes{% endblock %} · Rutgers–New Brunswick</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='vendor/chart-4.4.1.umd.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='charts.js') }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="{{ url_for('home') }}">Major&nbsp;→&nbsp;Outcomes</a>
+      <nav>
+        <a href="{{ url_for('home') }}">Search</a>
+        <a href="{{ url_for('compare') }}">Compare</a>
+        <a href="{{ url_for('sources') }}">Sources &amp; caveats</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="wrap site-footer">
+    <p>{{ meta.institution }} only. Camden and Newark campuses are not included.
+      Data built {{ meta.built }} from College Scorecard, Census PSEO, the Rutgers First-Destination Survey,
+      the NY Fed, BLS and NACE. See <a href="{{ url_for('sources') }}">sources &amp; caveats</a>.</p>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
